@@ -3,12 +3,17 @@ os: linux
 files:
   - source: /package.json
     destination: /home/ubuntu/app
-
+permissions:
+  - object: /
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+    
 hooks:
   BeforeInstall: 
     - location: scripts/install_dependencies.sh
       timeout: 300
-      runas: root
+      runas: ubuntu
   AfterInstall:
     - location: scripts/start_server.sh
       timeout: 300
