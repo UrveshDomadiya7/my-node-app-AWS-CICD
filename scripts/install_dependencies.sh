@@ -5,7 +5,7 @@ pwd
 id
 ls -a
 pwd
-cd /home/ubuntu/my-node-app
+cd /var/www/node_app
 ls -a
 sudo rm -rf node_modules package-lock.json
 source /home/ubuntu/.nvm/nvm.sh
