@@ -1,8 +1,8 @@
 version: 0.0
 os: linux
 files:
-  - source: /
-    destination: /var/www/node_app
+  - source: /package.json
+    destination: /var/www/node_app/
 
 hooks:
   BeforeInstall: 
