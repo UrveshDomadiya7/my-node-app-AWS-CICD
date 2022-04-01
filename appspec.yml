@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /package.json
-    destination: /var/www/node_app/
+    destination: /home/ubuntu/app
 
 hooks:
   BeforeInstall: 
