@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: /package.json
+  - source: /
     destination: /home/ubuntu/app
 permissions:
   - object: /
