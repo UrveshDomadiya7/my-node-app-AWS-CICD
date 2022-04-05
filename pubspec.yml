@@ -1,20 +1,19 @@
 version: 0.2
 
-phases:
-  install:
-    runtime-versions:
-      nodejs: 14
-    commands:
-      - npm install pm2@latest -g
-
-  build:
-    commands:
-      - sudo rm -rf node_modules package-lock.json
-      - npm install
-
+phases: 
+  pre_build: 
+    commands: 
+      - echo logging into Amazon ECR
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 399048314510.dkr.ecr.us-east-1.amazonaws.com
+  build: 
+    commands: 
+      - echo Build started 
+      - echo Building the Docker image...
+      - docker build -t jay_node_app .
+      - docker tag jay_node_app:latest 399048314510.dkr.ecr.us-east-1.amazonaws.com/jay_node_app:latest
   post_build:
-    commands:
-      - pm2 start server.js
-artifacts:
-   files:
-     - '**/*'
+    commands: 
+      - echo Build completed
+      - echo Pushing the Docker image...
+      - docker push 399048314510.dkr.ecr.us-east-1.amazonaws.com/jay_node_app:latest
+    

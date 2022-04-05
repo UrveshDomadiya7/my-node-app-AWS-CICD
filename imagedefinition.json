@@ -1,0 +1,6 @@
+[
+    {
+        "name": "web",
+        "imageUri": "399048314510.dkr.ecr.us-east-1.amazonaws.com/jay_node_app:latest"
+    }
+]
