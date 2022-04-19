@@ -1,0 +1,12 @@
+
+version: 0.0
+os: linux
+files:
+  - source: ./server.js
+    destination: /home/my-node-app
+  - source: ./package.json
+    destination: /home/my-node-app
+hooks:
+  AfterInstall:
+    - location: scripts/AfterInstall.sh
+      timeout: 1000
