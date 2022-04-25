@@ -11,7 +11,7 @@ pipeline {
                 '''
             }
         }
-             /* stage('clone') {
+        stage('clone') {
             steps {
                 sh script: "rm -rf $params.git_repo_name*"
                 sh """
@@ -20,7 +20,7 @@ pipeline {
                     git clone "$params.git_repo_http_url"
                 """
             }
-        } */
+        }
         stage('Build') {
             steps {
                 echo ('Build stages....')
