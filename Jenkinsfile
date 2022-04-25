@@ -43,7 +43,12 @@ pipeline {
                 sh script: "docker rm $params.docker_image_name"
                 sh script: "docker run -d -p 80:$params.container_port --name $params.container_name $params.docker_image_name:latest"
                 sh script: "docker ps"
+                echo "----------------------------------------------------------------------------"
                 echo "docker container with name $params.container_name deployed sucessfully......"
+                echo "----------------------------------------------------------------------------"
+                sh script: "docker rmi $(docker images | grep '>' | awk '{print $3}')"
+                echo "old docker image removed sucesssfully."
+
             }
         }
     }
