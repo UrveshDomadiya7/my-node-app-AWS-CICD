@@ -46,7 +46,7 @@ pipeline {
                 echo "----------------------------------------------------------------------------"
                 echo "docker container with name $params.container_name deployed sucessfully......"
                 echo "----------------------------------------------------------------------------"
-                sh script: "docker rmi \$(docker images | grep '>' | awk '{print $3}')"
+                sh script: "docker rmi \$(docker images | grep '>' | awk '{print \$3}')"
                 echo "old docker image removed sucesssfully."
 
             }
