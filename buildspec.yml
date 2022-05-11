@@ -4,16 +4,16 @@ phases:
   pre_build: 
     commands: 
       - echo logging into Amazon ECR
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 399048314510.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/w9g7w6e8
   build: 
     commands: 
       - echo Build started 
       - echo Building the Docker image...
-      - docker build -t jay_node_app .
-      - docker tag jay_node_app:latest 399048314510.dkr.ecr.us-east-1.amazonaws.com/jay_node_app:latest
+      - docker build -t node-app .
+      - docker tag node-app:latest public.ecr.aws/w9g7w6e8/node-app:latest
   post_build:
     commands: 
       - echo Build completed
       - echo Pushing the Docker image...
-      - docker push 399048314510.dkr.ecr.us-east-1.amazonaws.com/jay_node_app:latest
+      - docker push public.ecr.aws/w9g7w6e8/node-app:latest
     
