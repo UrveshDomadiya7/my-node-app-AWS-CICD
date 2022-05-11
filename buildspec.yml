@@ -10,7 +10,7 @@ phases:
     commands: 
       - echo Build started 
       - echo Building the Docker image...
-      - docker build -t node-app .
+      - docker build -t node-app:latest .
       - docker tag node-app:latest 102619787958.dkr.ecr.us-east-1.amazonaws.com/node-app:latest
   post_build:
     commands: 
