@@ -1,6 +1,6 @@
 [
     {
-        "name": "jay-node-app-container",
-        "imageUri": "399048314510.dkr.ecr.us-east-1.amazonaws.com/jay_node_app:latest"
+        "name": "ECS-project-Container",
+        "imageUri": "public.ecr.aws/w9g7w6e8/node-app:latest"
     }
 ]
