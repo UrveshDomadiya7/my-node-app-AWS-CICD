@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM public.ecr.aws/w9g7w6e8/jv-node-app:latest
 
 WORKDIR /app
 
