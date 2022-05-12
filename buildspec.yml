@@ -1,0 +1,23 @@
+version: 0.2
+run-as: root
+
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/w9g7w6e8
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      - docker build -t node-app .
+      - docker tag node-app:latest public.ecr.aws/w9g7w6e8/node-app:latest    
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push public.ecr.aws/w9g7w6e8/node-app:latest
+      - echo Writing image definitions file...
+artifacts:
+    files: imagedefinitions.json
