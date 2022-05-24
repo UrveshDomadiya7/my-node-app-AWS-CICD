@@ -20,4 +20,4 @@ phases:
       - docker push public.ecr.aws/w9g7w6e8/node-app:latest
       - echo Writing image definitions file...
 artifacts:
-    files: imagedefinitions.json
+    files: imagedefinition.json
