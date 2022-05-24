@@ -1,6 +1,6 @@
 [
     {
-        "name": "jv-container",
+        "name": "blue-green-container",
         "imageUri": "public.ecr.aws/w9g7w6e8/node-app:latest"
     }
 ]
